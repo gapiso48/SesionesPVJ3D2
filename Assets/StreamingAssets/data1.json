@@ -1,7 +1,7 @@
 {
-    "pCOM": "COM9",
-    "id1": "DET0",
-    "id2": "DET1",
-    "id3": "DET2",
-	"id4": "DET3"
+    "nombre_juego": "Juego Shooter",
+    "nombre_jugador": "Andres",
+    "nivel": 1,
+    "salud": 100,
+    "correo": ""
 }
