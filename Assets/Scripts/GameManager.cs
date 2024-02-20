@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public DataJSON misDatos;
     public Text textoTitulo;
     public Text textoPlayer;
+    public GameObject panelUI;
     public InputField textoJugador;
     // Start is called before the first frame update
     void Start()
@@ -32,11 +33,13 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(Input.GetKeyUp(KeyCode.Escape)){
+            panelUI.SetActive(true);
+        }
     }
 
     void cargaDatos(){
-        GameObject.Find("t_titulo").GetComponent<Text>().text = misDatos.nombre_juego;
+        //GameObject.Find("t_titulo").GetComponent<Text>().text = misDatos.nombre_juego;
         textoTitulo.text = misDatos.nombre_juego;
         textoPlayer.text = misDatos.nombre_jugador;
     }
