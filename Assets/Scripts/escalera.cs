@@ -15,19 +15,22 @@ public class escalera : MonoBehaviour
     {
         
     }
-    void OnCollisionEnter(Collision c){
-        Debug.Log("Cae " + c.gameObject.name);
-        generarEscalon();
-        Invoke("destruye",1.0f);
-    }
 
+    void OnTriggerEnter(Collider c){
+
+        Debug.Log("Cae " + c.gameObject.name);
+        if(c.gameObject.name == "PlayerArmature"){
+            generarEscalon();
+            Invoke("destruye",1.0f);
+        }
+    }
     void generarEscalon(){
         Vector3 pos = this.transform.position;
         pos = pos + new Vector3(0,0.4f,-1.5f);
-        Instantiate(this.gameObject, pos, this.transform.rotation);
-        Debug.Log("Instancio");
+        GameObject newObject = Instantiate(this.gameObject, pos, this.transform.rotation);
+        newObject.name = "escalon";
     }
     void destruye(){
-        Destroy(this.gameObject);
+        Destroy(gameObject);
     }
 }
