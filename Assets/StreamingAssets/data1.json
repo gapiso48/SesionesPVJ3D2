@@ -1,7 +1,12 @@
 {
-    "pCOM": "COM9",
-    "id1": "DET0",
-    "id2": "DET1",
-    "id3": "DET2",
-	"id4": "DET3"
+    "nombre_juego": "Juego Shooter",
+    "nombre_jugador": "New Player",
+    "nivel": 1,
+    "salud": 100,
+    "correo": "",
+    "playerLocation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+    }
 }
