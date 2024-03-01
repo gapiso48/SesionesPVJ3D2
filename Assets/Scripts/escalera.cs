@@ -21,7 +21,7 @@ public class escalera : MonoBehaviour
         Debug.Log("Cae " + c.gameObject.name);
         if(c.gameObject.name == "PlayerArmature"){
             generarEscalon();
-            Invoke("destruye",1.0f);
+            //Invoke("destruye",2.0f);
         }
     }
     void generarEscalon(){
@@ -29,8 +29,11 @@ public class escalera : MonoBehaviour
         pos = pos + new Vector3(0,0.4f,-1.5f);
         GameObject newObject = Instantiate(this.gameObject, pos, this.transform.rotation);
         newObject.name = "escalon";
+        this.GetComponent<Animator>().SetBool("active",true);
+        this.GetComponent<Animator>().speed = 1.0f;
+        
     }
-    void destruye(){
+    public void destruye(){
         Destroy(gameObject);
     }
 }
