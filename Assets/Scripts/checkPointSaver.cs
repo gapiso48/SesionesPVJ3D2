@@ -17,18 +17,24 @@ public class checkPointSaver : MonoBehaviour
     {
         
     }
-        void OnTriggerEnter (Collider c){
-        if (c.gameObject.tag == "checkPoint"){
-            Debug.Log("CheckPoint!!");
-            lastCheckpoint = this.transform.position;
-        }
-        if (c.gameObject.tag == "trampa"){
-            Debug.Log("Desaparece!!");
-            this.GetComponent<CharacterController>().enabled=false;
 
-            this.gameObject.transform.position = lastCheckpoint;
-            this.GetComponent<CharacterController>().enabled=true;
-        }
+    void OnTriggerEnter (Collider c){
+    if (c.gameObject.tag == "checkPoint"){
+        Debug.Log("CheckPoint!!");
+        lastCheckpoint = this.transform.position;
+        confirmar();
+    }
+    if (c.gameObject.tag == "trampa"){
+        Debug.Log("Desaparece!!");
+        this.GetComponent<CharacterController>().enabled=false;
+
+        this.gameObject.transform.position = lastCheckpoint;
+        this.GetComponent<CharacterController>().enabled=true;
+    }
+    }
+
+    public void confirmar(){
+        GameObject.Find("GameManager").GetComponent<GameManager>().actualizarUbicacion(lastCheckpoint);
     }
 
 }

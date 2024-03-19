@@ -5,8 +5,14 @@
     "salud": 100,
     "correo": "",
     "playerLocation": {
-        "x": 0.0,
-        "y": 0.0,
-        "z": 0.0
-    }
+        "x": -9.691864013671875,
+        "y": 0.9899998903274536,
+        "z": 11.764488220214844
+    },
+    "preguntas": [
+        "Pregunta complicada de unity",
+        "Por que no se puede",
+        "Cuál es el error?",
+        "No tengo preguntas"
+    ]
 }
