@@ -21,6 +21,8 @@ public class DataJSON : System.Object
     public Vector3 playerLocation;
     [SerializeField]
     public List<string> preguntas;
+    [SerializeField]
+    public string colorPref;
 
     public DataJSON()
     {

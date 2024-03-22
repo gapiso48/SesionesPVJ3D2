@@ -6,18 +6,24 @@ using System.IO;
 
 public class GameManager : MonoBehaviour
 {
+    public Texture texture;
     public DataJSON misDatos;
     public Text textoTitulo;
     public Text textoPlayer;
     public GameObject panelUI;
     public InputField textoJugador;
     public GameObject jugador;
+    public RawImage inventoryContainer;
+    
+
     // Start is called before the first frame update
     void Start()
     {
         DontDestroyOnLoad(this.gameObject);
         GameObject canvas = GameObject.Find("Canvas");
         DontDestroyOnLoad(canvas.gameObject);
+
+
 
         string filePat = Application.streamingAssetsPath + "/" + "data1.json";
 
@@ -38,6 +44,7 @@ public class GameManager : MonoBehaviour
             File.WriteAllText(filePat, s);
         }
         cargaDatos();
+        cargaUI();
     }
 
     // Update is called once per frame
@@ -53,6 +60,12 @@ public class GameManager : MonoBehaviour
         textoTitulo.text = misDatos.nombre_juego;
         textoPlayer.text = misDatos.nombre_jugador;
         jugador.transform.position = misDatos.playerLocation;
+    }
+
+    void cargaUI(){
+        Debug.Log("Color " + misDatos.colorPref);
+        texture = Resources.Load<Texture>("UI/" + misDatos.colorPref + "/0");
+        inventoryContainer.texture = texture;
     }
     public void guardaDatos(){
         misDatos.nombre_jugador = textoJugador.text;
