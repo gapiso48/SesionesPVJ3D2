@@ -15,6 +15,10 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        DontDestroyOnLoad(this.gameObject);
+        GameObject canvas = GameObject.Find("Canvas");
+        DontDestroyOnLoad(canvas.gameObject);
+
         string filePat = Application.streamingAssetsPath + "/" + "data1.json";
 
         if (File.Exists(filePat))
